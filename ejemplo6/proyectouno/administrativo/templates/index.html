@@ -43,7 +43,6 @@
     <th><b>Tipo</b></th>
     <th><b>Edad</b></th>
     <th><b>Matriculas</b></th>
-    <th><b>Opciones</b></th>
   </tr>
   {% for e in estudiantes %}
   <tr>
@@ -69,10 +68,6 @@
         {% endfor %}
         <div>Costo Total: ${{ e.total_pagado }}</div>
       </ul>
-    <td>
-      [<a href="{% url 'detalle_matricula' e.id %}">ver</a>]
-      [<a href="{% url 'editar_matricula' e.id %}">editar</a>]
-    </td>
   </tr>
   {% endfor %}
 </table>
