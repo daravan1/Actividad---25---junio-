@@ -62,11 +62,12 @@
     </td>
     <td>
       <ul>
-        {% for m in e.lasmatriculas.all %}
+        {% for m in e.obtener_matriculas %}
         <li>{{ m.modulo.nombre }} - ${{ m.costo }}</li>
         {% empty %}
         <li>No tiene matrículas</li>
         {% endfor %}
+        <div>Costo Total: ${{ e.total_pagado }}</div>
       </ul>
     <td>
       [<a href="{% url 'detalle_matricula' e.id %}">ver</a>]
