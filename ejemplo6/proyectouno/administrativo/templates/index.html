@@ -62,8 +62,8 @@
     </td>
     <td>
       <ul>
-        {% for m in estudiante.lasmatriculas %}
-        <li>{{ m.modulo.opciones_modulo }} - ${{ m.costo }}</li>
+        {% for m in e.estudiante.lasmatriculas.all %}
+        <li>{{ m.modulo.nombre }} - ${{ m.costo }}</li>
         {% empty %}
         <li>No tiene matrículas</li>
         {% endfor %}
