@@ -45,30 +45,29 @@
     <th><b>Matriculas</b></th>
     <th><b>Opciones</b></th>
   </tr>
-  {% for e in matriculas %}
+  {% for e in estudiantes %}
   <tr>
     <td>
-      {{e.estudiante.nombre}}
-      [<a href="{% url 'detalle_estudiante' e.estudiante.id %}">+</a>]
+      {{e.nombre}}
+      [<a href="{% url 'detalle_estudiante' e.id %}">+</a>]
     </td>
     <td>
-      {{e.estudiante.apellido}}
+      {{e.apellido}}
     </td>
     <td>
-      {{ e.estudiante.get_tipo_estudiante_display }}
+      {{ e.get_tipo_estudiante_display }}
     </td>
     <td>
-      {{e.estudiante.edad}}
+      {{e.edad}}
     </td>
     <td>
       <ul>
-        {% for m in e.estudiante.lasmatriculas.all %}
+        {% for m in e.lasmatriculas.all %}
         <li>{{ m.modulo.nombre }} - ${{ m.costo }}</li>
         {% empty %}
         <li>No tiene matrículas</li>
         {% endfor %}
       </ul>
-    </td>
     <td>
       [<a href="{% url 'detalle_matricula' e.id %}">ver</a>]
       [<a href="{% url 'editar_matricula' e.id %}">editar</a>]
